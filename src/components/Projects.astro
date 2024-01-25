@@ -1,0 +1,154 @@
+---
+import TypeScriptIcon from "../icons/TypeScript.astro";
+import NextIcon from "../icons/Next.astro";
+import ReactIcon from "../icons/React.astro";
+import TailwindIcon from "../icons/Tailwind.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import LinkIcon from "../icons/Link.astro";
+import SocialPill from "./SocialPill.astro";
+
+const TAGS = {
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#3178c6]",
+    icon: TypeScriptIcon,
+  },
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black",
+    icon: NextIcon,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#00a0f0]",
+    icon: ReactIcon,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#38b2ac]",
+    icon: TailwindIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Aplicación Trello",
+    description:
+      'Aplicación trello donde se agregan tareas "To Do", se pueden cargar imágenes, estatus, drag & drop e incluye buscador. Backend as a Service como appwrite.io',
+    link: "https://trello-app-orcin.vercel.app/",
+    github: "https://github.com/racross-dev/trello-app",
+    image: "/projects/trello-app.webp",
+    tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.REACT, TAGS.TAILWIND],
+  },
+];
+---
+
+<style>
+  article {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px 0;
+    margin-bottom: 20px;
+  }
+
+  div img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: filter 0.3s ease-in-out;
+  }
+
+  @media screen and (max-width: 640px) {
+    .overlay {
+      position: static;
+      display: block;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .hidden-on-sm {
+      display: none;
+    }
+  }
+
+  /* Pantallas grandes (mayores a 640px) */
+  @media screen and (min-width: 641px) {
+    div:hover img {
+      filter: brightness(50%);
+    }
+
+    div:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      cursor: pointer;
+      padding: 16px 20px;
+      box-sizing: border-box;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1)
+      ); /* Gradiente desde transparente hasta negro */
+      color: #fff;
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+  }
+</style>
+
+{
+  PROJECTS.map(({ title, description, image, tags, link, github }) => (
+    <article>
+      <h3 class="text-lg sm:text-2xl font-semibold text-amber-200">{title}</h3>
+      <div class="relative">
+        <img
+          class="rounded"
+          loading="lazy"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+        <a
+          class="overlay"
+          href={link}
+          target="_blank"
+          title="Ir a la página"
+          rel="noopener noreferrer"
+        >
+          <p class="my-4 sm:mb-4 text-pretty">{description}</p>
+          <h4 class="basis-full text-lg font-medium sm:hidden">Tecnologías usadas: </h4>
+          <ul class="flex gap-4 flex-wrap mb-6 bg-gray-800/30 p-2 rounded-md sm:m-0 sm:bg-transparent sm:p-0">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex items-center gap-x-1 rounded-full w-fit px-2 py-1 text-sm ${tag.class}`}
+                >
+                  <tag.icon class="size-5" /> {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </a>
+      </div>
+      <div class="flex gap-x-2">
+        <SocialPill href={github}>
+          <GitHubIcon />
+          Repositorio
+        </SocialPill>
+        <SocialPill class="sm:hidden" href={github}>
+          <LinkIcon />
+          Abrir aplicación
+        </SocialPill>
+      </div>
+    </article>
+  ))
+}

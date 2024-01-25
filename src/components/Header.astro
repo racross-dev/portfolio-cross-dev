@@ -1,0 +1,37 @@
+<header class="py-6 w-full md:w-[1120px] fixed z-10 backdrop-blur">
+  <nav class="flex justify-center gap-x-4 sm:gap-x-10 opacity-90">
+    <a href="#home">Inicio</a>
+    <a href="#experience">Experiencia</a>
+    <a href="#projects">Proyectos</a>
+    <a class="text-nowrap" href="#about">Sobre mí</a>
+  </nav>
+</header>
+
+<style>
+  nav a {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff; /* Color de la línea */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+  }
+
+  nav a:hover {
+    font-size: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  }
+
+  nav a:hover::after {
+    width: 110%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7);
+  }
+</style>

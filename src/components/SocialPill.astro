@@ -1,0 +1,38 @@
+<a
+  class={`rounded-full border border-white/50 w-fit flex justify-center items-center gap-x-2 py-2 px-3 ${Astro.props.class}`}
+  {...Astro.props}
+  target="_blank"
+  rel="noopener noreferrer"><slot /></a
+>
+
+<style>
+    a {
+      position: relative;
+      text-decoration: none;
+      color: #fff;
+      overflow: hidden;
+      transition: color 300ms ease-in-out;
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 100%;
+      background-color: #fffe;
+      opacity: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 300ms ease-in-out;
+      z-index: -1;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    a:hover::before {
+      width: 100%;
+    }
+</style>

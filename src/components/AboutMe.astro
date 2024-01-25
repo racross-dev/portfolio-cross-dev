@@ -1,0 +1,138 @@
+---
+import TechSquare from "./TechSquare.astro";
+import HTMLIcon from "../icons/HTML.astro";
+import CSSIcon from "../icons/CSS.astro";
+import ReactIcon from "../icons/React.astro";
+import NextIcon from "../icons/Next.astro";
+import JavaScriptIcon from "../icons/JavaScript.astro";
+import MySQLIcon from "../icons/MySQL.astro";
+import PythonIcon from "../icons/Python.astro";
+import DjangoIcon from "../icons/Django.astro";
+import CsharpIcon from "../icons/Csharp.astro";
+import GitIcon from "../icons/Git.astro";
+import TypeScriptIcon from "../icons/TypeScript.astro";
+import NodeJSIcon from "../icons/NodeJS.astro";
+import AstroIcon from "../icons/Astro.astro";
+import TailwindIcon from "../icons/Tailwind.astro";
+
+const CONOCIMIENTO = {
+  ALTO: `col-span-6 row-span-6`,
+  MEDIO_ALTO: `col-span-4 row-span-6`,
+  MEDIO: `col-span-3 row-span-5`,
+  MEDIO_BAJO: `col-span-3 row-span-4`,
+  BAJO: `col-span-2 row-span-4`,
+};
+---
+
+<style>
+  .grid-rows-16 {
+    grid-auto-rows: minmax(0, 1fr); /* Ajusta el número de columnas aquí */
+  }
+</style>
+
+<article>
+ <section class=`text-gray-300/90 my-6 flex flex-col gap-y-4`>
+    <span class="font-semibold">¡Hola👋! soy un profesional apasionado por la tecnología y el diseño, con una sólida formación en Tecnologías de Información y una carrera técnica en Diseño Gráfico. </span>
+    
+    <span class="block font-bold text-2xl">Experimentado en el desarrollo Full Stack. 🚀</span>
+    
+    <div class="bg-gray-800/30 p-4 rounded-md">
+      <code class="text-orange-200 sm:whitespace-pre font-semibold">
+        <span class="text-violet-300 -ml-2">const</span> <span class="text-cyan-200">aplicacionExitosa</span> = (<span class="text-red-300">diseño</span> + <span class="text-red-300">desarrollo</span>) => &#123;
+      <span class="text-violet-300 sm:ml-12">return</span> <span class="text-green-200">"¡Aplicación Impresionante!"</span>;
+&#125;
+      
+      <span class="text-yellow-200">console.log</span>(<span class="text-cyan-200">aplicacionExitosa()</span>);
+      </code>
+    </div>
+    
+
+    <span class="font-semibold">Mi formación me ha permitido combinar la estética del diseño con la funcionalidad del desarrollo, generando soluciones que generan eficiencia y atractivo visual. Mi habilidad para trabajar en proyectos multidisciplinarios se refleja en mi capacidad para comprender las necesidades del usuario y traducirlas en interfaces intuitivas y amigables.</span>
+    
+    <p>Mi experiencia me ha proporcionado una comprensión completa del ciclo de vida de desarrollo. Además de mi afán por aprender y mantenerme actualizado en nuevas tecnologías, así como mi capacidad para adaptarme rápidamente a los cambios, me convierten en un profesional versátil y comprometido.</p> 
+    
+    <span class="font-semibold">Lo que me impulsa es la búsqueda constante de la excelencia, la voluntad de enfrentar desafíos y el deseo de aprender y crecer continuamente. Combinando mis habilidades en TI y diseño, junto con mi enfoque proactivo y orientado a resultados, me convierte en una valiosa opción para contribuir al éxito y aportar un valor significativo a cualquier proyecto.</span>
+    
+    <p>Emocionado por colaborar, innovar y contribuir con mi creatividad y habilidades técnicas para alcanzar objetivos ambiciosos. ¡Espero poder aportar mi pasión y dedicación y marcar la diferencia desde el primer día!</p>
+  </section>
+
+  <h3 class="text-2xl mt-2 text-gray-900 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-cyan-500 font-semibold">
+    Tecnologías experimentadas
+  </h3>
+
+  <section class=`grid grid-cols-12 grid-rows-16 h-[500px]`>
+    <TechSquare class=`hover:bg-[#E44D26] group ${CONOCIMIENTO.ALTO}`>
+      <HTMLIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">HTML</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#1572B6] group ${CONOCIMIENTO.ALTO}`>
+      <CSSIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">CSS</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#F0C04F] group ${CONOCIMIENTO.MEDIO_ALTO}`>
+      <JavaScriptIcon
+        class="size-10 group-hover:size-0 md:group-hover:size-8"
+      />
+      <span class="hidden group-hover:block text-lg">JavaScript</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#61DAFB] group ${CONOCIMIENTO.MEDIO_ALTO}`>
+      <ReactIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">React</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#38b2ac] group ${CONOCIMIENTO.MEDIO_ALTO}`>
+      <TailwindIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Tailwind CSS</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#ff5d01] group ${CONOCIMIENTO.MEDIO}`>
+      <AstroIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Astro</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#F05032] group ${CONOCIMIENTO.MEDIO}`>
+      <GitIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Git</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#00758F] group ${CONOCIMIENTO.MEDIO}`>
+      <MySQLIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">MySQL</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#306998] group ${CONOCIMIENTO.MEDIO}`>
+      <PythonIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Python</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#3178C6] group ${CONOCIMIENTO.MEDIO_BAJO}`>
+      <TypeScriptIcon
+        class="size-10 group-hover:size-0 md:group-hover:size-8"
+      />
+      <span class="hidden group-hover:block text-lg">TypeScript</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#8CC84B] group ${CONOCIMIENTO.BAJO}`>
+      <NodeJSIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Node.js</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#092E20] group ${CONOCIMIENTO.MEDIO_BAJO}`>
+      <DjangoIcon class="size-11 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Django</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#68217A] group ${CONOCIMIENTO.BAJO}`>
+      <CsharpIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">CSharp</span>
+    </TechSquare>
+
+    <TechSquare class=`hover:bg-[#000000] group ${CONOCIMIENTO.BAJO}`>
+      <NextIcon class="size-10 group-hover:size-0 md:group-hover:size-8" />
+      <span class="hidden group-hover:block text-lg">Next.js</span>
+    </TechSquare>
+  </section>
+</article>
