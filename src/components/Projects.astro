@@ -1,13 +1,32 @@
 ---
+import SocialPill from "./SocialPill.astro";
+
 import TypeScriptIcon from "../icons/TypeScript.astro";
 import NextIcon from "../icons/Next.astro";
 import ReactIcon from "../icons/React.astro";
 import TailwindIcon from "../icons/Tailwind.astro";
 import GitHubIcon from "../icons/GitHub.astro";
 import LinkIcon from "../icons/Link.astro";
-import SocialPill from "./SocialPill.astro";
+import HTMLIcon from "../icons/HTML.astro";
+import BootstrapIcon from "../icons/Bootstrap.astro";
+import JavaScriptIcon from "../icons/JavaScript.astro";
 
 const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-[#E44D26]",
+    icon: HTMLIcon,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-[#007BFF]",
+    icon: BootstrapIcon,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#F0C04F]",
+    icon: JavaScriptIcon,
+  },
   TYPESCRIPT: {
     name: "TypeScript",
     class: "bg-[#3178c6]",
@@ -40,11 +59,20 @@ const PROJECTS = [
     image: "/projects/trello-app.webp",
     tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.REACT, TAGS.TAILWIND],
   },
+  {
+    title: "Generador de Curriculum",
+    description:
+      "Página donde se toma la información más importante para un curriculum, para posteriormente generarla.",
+    link: "https://racross-dev.github.io/generador-cv/",
+    github: "https://github.com/racross-dev/generador-cv",
+    image: "/projects/generador-cv.webp",
+    tags: [TAGS.HTML, TAGS.BOOTSTRAP, TAGS.JAVASCRIPT],
+  },
 ];
 ---
 
 <style>
-  article {
+  section {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -106,49 +134,55 @@ const PROJECTS = [
   }
 </style>
 
-{
-  PROJECTS.map(({ title, description, image, tags, link, github }) => (
-    <article>
-      <h3 class="text-lg sm:text-2xl font-semibold text-amber-200">{title}</h3>
-      <div class="relative">
-        <img
-          class="rounded"
-          loading="lazy"
-          src={image}
-          alt={`Captura de pantalla del proyecto ${title}`}
-        />
-        <a
-          class="overlay"
-          href={link}
-          target="_blank"
-          title="Ir a la página"
-          rel="noopener noreferrer"
-        >
-          <p class="my-4 sm:mb-4 text-pretty">{description}</p>
-          <h4 class="basis-full text-lg font-medium sm:hidden">Tecnologías usadas: </h4>
-          <ul class="flex gap-4 flex-wrap mb-6 bg-gray-800/30 p-2 rounded-md sm:m-0 sm:bg-transparent sm:p-0">
-            {tags.map((tag) => (
-              <li>
-                <span
-                  class={`flex items-center gap-x-1 rounded-full w-fit px-2 py-1 text-sm ${tag.class}`}
-                >
-                  <tag.icon class="size-5" /> {tag.name}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </a>
-      </div>
-      <div class="flex gap-x-2">
-        <SocialPill href={github}>
-          <GitHubIcon />
-          Repositorio
-        </SocialPill>
-        <SocialPill class="sm:hidden" href={link}>
-          <LinkIcon />
-          Abrir aplicación
-        </SocialPill>
-      </div>
-    </article>
-  ))
-}
+<article class="space-y-20">
+  {
+    PROJECTS.map(({ title, description, image, tags, link, github }) => (
+      <section>
+        <h3 class="text-xl sm:text-2xl font-semibold text-amber-200">
+          {title}
+        </h3>
+        <div class="relative">
+          <img
+            class="rounded"
+            loading="lazy"
+            src={image}
+            alt={`Captura de pantalla del proyecto ${title}`}
+          />
+          <a
+            class="overlay"
+            href={link}
+            target="_blank"
+            title="Ir a la página"
+            rel="noopener noreferrer"
+          >
+            <p class="my-4 sm:mb-4 text-pretty text-sm sm:text-md">{description}</p>
+            <h4 class="basis-full sm:text-lg font-medium sm:hidden">
+              Tecnologías usadas:{" "}
+            </h4>
+            <ul class="flex gap-4 flex-wrap mb-6 bg-gray-800/30 p-2 rounded-md sm:m-0 sm:bg-transparent sm:p-0">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex items-center gap-x-1 rounded-full w-fit px-2 py-1 text-sm ${tag.class}`}
+                  >
+                    <tag.icon class="size-5" /> {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </a>
+        </div>
+        <div class="flex gap-x-2">
+          <SocialPill href={github}>
+            <GitHubIcon />
+            Repositorio
+          </SocialPill>
+          <SocialPill class="sm:hidden" href={link}>
+            <LinkIcon />
+            Abrir aplicación
+          </SocialPill>
+        </div>
+      </section>
+    ))
+  }
+</article>
