@@ -1,22 +1,25 @@
 ---
 import SocialPill from "./SocialPill.astro";
-import MailIcon from "../icons/Mail.astro"
-import WhatsappIcon from "../icons/Whatsapp.astro"
+import MailIcon from "../icons/Mail.astro";
+import WhatsappIcon from "../icons/Whatsapp.astro";
 ---
 
 <footer class="rounded-lg shadow w-full backdrop-blur-sm">
   <div
     class="w-full mx-auto max-w-screen-xl p-4 sm:flex sm:items-center sm:justify-between"
   >
-    <span class="text-sm sm:text-center text-gray-400 flex justify-center gap-4"
-      >© 2024 <a href="/" class="hover:underline"
-        >Cross Dev</a
-      >
-    </span>
+    <a href="/" class="flex justify-center items-center"
+      ><img
+        src="../../public/logo.png"
+        alt="Logotipo de Rubén Cruz"
+        class="h-16"
+      /></a
+    >
+
     <ul
       class="flex flex-wrap gap-4 items-center justify-center mt-3 text-sm font-medium text-gray-400 sm:mt-0"
     >
-        <h4>Contáctame</h4>
+      <h4>Contáctame</h4>
       <SocialPill href="mailto:racq_2002@outlook.com" class="size-9">
         <MailIcon />
         Correo
